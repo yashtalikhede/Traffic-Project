@@ -262,7 +262,7 @@ export default function App() {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetch("/api/snapshot");
+        const res = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/snapshot`);
         if (res.ok) {
           const j = await res.json();
           setColleges(j.colleges && j.colleges.length > 0 ? j.colleges : getMock());
